@@ -3,6 +3,11 @@ sequenceDiagram
     participant browser
     participant server
 
+    browser->>server: POST (form content is sent)
+    activate server
+    server-->browser: the note has been received and processed, restart
+    desactivate server
+
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
     activate server
     server-->>browser: HTML document
